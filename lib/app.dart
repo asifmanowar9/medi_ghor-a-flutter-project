@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:medi_ghor/features/authentication/screens/onboarding/onboarding.dart';
 
 import 'utils/theme/theme.dart';
 
@@ -8,10 +10,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return  GetMaterialApp(
       themeMode: ThemeMode.system,
       theme: RAppTheme.lightTheme,
       darkTheme: RAppTheme.darkTheme,
+      home: const OnBoardingScreen(),
     );
   }
 }
