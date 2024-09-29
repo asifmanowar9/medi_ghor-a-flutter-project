@@ -1,59 +1,71 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:medi_ghor/utils/constants/text_strings.dart';
 
-import '../../../utils/constants/sizes.dart';
-import '../../../utils/constants/text_strings.dart';
-import '../../../utils/helpers/helper_functions.dart';
-import '../../styles/spacing_styles.dart';
+import '../../../../utils/constants/image_strings.dart';
+import '../../../../utils/constants/sizes.dart';
+import '../../../../utils/helpers/helper_functions.dart';
 
-class SuccessScreen extends StatelessWidget {
-  const SuccessScreen({super.key, required this.image, required this.title, required this.subTitle,  this.onPressed});
-
-  final String image, title, subTitle;
-  final VoidCallback? onPressed;
+class ResetPassword extends StatelessWidget {
+  const ResetPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        actions: [
+          IconButton(onPressed: () => Get.back(), icon: Icon(CupertinoIcons.clear))
+        ],
+      ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: RSpacingStyle.paddingWithAppBarHeight * 2,
+          padding: EdgeInsets.all(RSizes.defaultSpace),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image(
-                image: AssetImage(image),
+                image: AssetImage(RImages.deliveredEmailIllustration),
                 width: RHelperFunctions.screenWidth() * 0.6,
               ),
               const SizedBox(
                 height: RSizes.spaceBtwSections,
               ),
-
+        
               ///title and subtitle
               Text(
-                title,
+                RTexts.changeYourPasswordTitle,
                 style: Theme.of(context).textTheme.headlineMedium,
                 textAlign: TextAlign.center,
               ),
-
+        
               const SizedBox(
                 height: RSizes.spaceBtwItems,
               ),
               Text(
-                subTitle,
+                RTexts.changeYourPasswordSubTitle,
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
                 height: RSizes.spaceBtwSections,
               ),
-
+        
               ///buttons
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: onPressed, child: const Text(RTexts.tContinue)),
+                    onPressed: (){}, child: const Text(RTexts.done)),
               ),
               const SizedBox(
                 height: RSizes.spaceBtwItems,
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                    onPressed: (){}, child: const Text(RTexts.resendEmail)),
               ),
             ],
           ),

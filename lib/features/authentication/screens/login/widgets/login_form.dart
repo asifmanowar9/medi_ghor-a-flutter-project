@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:medi_ghor/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:medi_ghor/features/authentication/screens/signup/signup.dart';
+import 'package:medi_ghor/navigation_menu.dart';
 
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
@@ -51,7 +53,7 @@ class RLoginForm extends StatelessWidget {
                     ],
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => ForgetPassword()),
                     child: const Text(RTexts.forgetPassword),
                   ),
                 ],
@@ -65,7 +67,7 @@ class RLoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Get.to(() => NavigationMenu()),
                 child: const Text(RTexts.signIn),
               ),
             ),
