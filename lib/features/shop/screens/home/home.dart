@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:medi_ghor/common/widgets/app_bar/appbar.dart';
+import 'package:medi_ghor/common/widgets/custom_shapes/curvedEdges/curved_edges.dart';
 
 import '../../../../common/widgets/custom_shapes/containers/circular_container.dart';
+import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
+import '../../../../common/widgets/custom_shapes/curvedEdges/curved_edges_widget.dart';
 import '../../../../utils/constants/colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -8,21 +12,15 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              color: RColors.primary,
-              padding: const EdgeInsets.all(0),
-              child:  SizedBox(
-                height: 400,
-              child: Stack(
-                  children: [
-                    Positioned(top: -150,right: -250,child: RCircularContainer(backgroundColor: RColors.textWhite.withOpacity(0.1),)),
-                    Positioned(top: 100,right: -300,child: RCircularContainer(backgroundColor: RColors.textWhite.withOpacity(0.1),)),
-                  ],
-                ),
+            RPrimaryHeaderContainer(
+              child: Column(
+                children: [
+                  //RAppbar(),
+                ],
               ),
             ),
           ],
