@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:medi_ghor/common/widgets/app_bar/appbar.dart';
-import 'package:medi_ghor/common/widgets/custom_shapes/curvedEdges/curved_edges.dart';
+import 'package:medi_ghor/features/shop/screens/home/widgets/home_appbar.dart';
+import 'package:medi_ghor/utils/constants/sizes.dart';
 
-import '../../../../common/widgets/custom_shapes/containers/circular_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
-import '../../../../common/widgets/custom_shapes/curvedEdges/curved_edges_widget.dart';
-import '../../../../utils/constants/colors.dart';
+import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
+import '../../../../common/widgets/texts/section_heading.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -19,7 +18,30 @@ class HomeScreen extends StatelessWidget {
             RPrimaryHeaderContainer(
               child: Column(
                 children: [
-                  //RAppbar(),
+                  ///appbar
+                  RHomeAppBar(),
+                  SizedBox(
+                    height: RSizes.spaceBtwSections,
+                  ),
+
+                  ///search bar
+                  RSearchContainer(
+                    text: 'Search in the store.',
+                  ),
+                  SizedBox(
+                    height: RSizes.spaceBtwSections,
+                  ),
+
+                  ///categories
+                  Padding(
+                    padding: EdgeInsets.only(left: RSizes.defaultSpace),
+                    child: Column(
+                      children: [
+                        RSectionHeading(title: 'Popular Categories.', showActionButton: false,),
+
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

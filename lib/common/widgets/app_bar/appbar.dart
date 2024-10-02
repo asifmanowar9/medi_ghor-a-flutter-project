@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medi_ghor/utils/constants/sizes.dart';
 
@@ -10,7 +9,7 @@ class RAppbar extends StatelessWidget implements PreferredSizeWidget {
   const RAppbar(
       {super.key,
       this.title,
-      required this.showBackArrow ,
+      this.showBackArrow = false,
       this.leadingIcon,
       this.actions,
       this.leadingOnPressed});
@@ -29,9 +28,12 @@ class RAppbar extends StatelessWidget implements PreferredSizeWidget {
         automaticallyImplyLeading: false,
         leading: showBackArrow
             ? IconButton(
-                onPressed: () => Get.back(), icon: Icon(Iconsax.arrow_left))
-            : leadingIcon != null ? IconButton(
-                onPressed: leadingOnPressed, icon: Icon( leadingIcon)) : null,
+                onPressed: () => Get.back(),
+                icon: const Icon(Iconsax.arrow_left))
+            : leadingIcon != null
+                ? IconButton(
+                    onPressed: leadingOnPressed, icon: Icon(leadingIcon))
+                : null,
         title: title,
         actions: actions,
       ),
