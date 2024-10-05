@@ -11,6 +11,7 @@ import 'package:medi_ghor/utils/constants/sizes.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
 import '../../../../common/widgets/images/r_rounded_images.dart';
+import '../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 
@@ -19,11 +20,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            RPrimaryHeaderContainer(
+            const RPrimaryHeaderContainer(
               child: Column(
                 children: [
                   ///appbar
@@ -65,15 +66,21 @@ class HomeScreen extends StatelessWidget {
 
             ///body
             Padding(
-              padding: EdgeInsets.all(RSizes.defaultSpace),
+              padding: const EdgeInsets.all(RSizes.defaultSpace),
               child: Column(
                 children: [
-                  RPromoSlider(banners: [RImages.promoBanner2,RImages.promoBanner1,RImages.promoBanner3],),
-                  SizedBox(
+                  const RPromoSlider(
+                    banners: [
+                      RImages.promoBanner2,
+                      RImages.promoBanner1,
+                      RImages.promoBanner3
+                    ],
+                  ),
+                  const SizedBox(
                     height: RSizes.spaceBtwSections,
                   ),
+                  RGridLayout(itemCount: 4, itemBuilder: (_, index ) => const RProductCardVertical() ,),
 
-                  RProductCardVertical(),
                 ],
               ),
             ),
