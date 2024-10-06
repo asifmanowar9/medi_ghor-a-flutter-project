@@ -5,6 +5,7 @@ import 'package:medi_ghor/utils/constants/colors.dart';
 import 'package:medi_ghor/utils/helpers/helper_functions.dart';
 
 import 'features/shop/screens/home/home.dart';
+import 'features/shop/screens/store/store.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -42,6 +43,6 @@ class NavigationMenu extends StatelessWidget {
 class NavigationController extends GetxController{
   final Rx<int> selectedIndex = 0.obs;
 
-  final screens = [const HomeScreen(),Container(color: Colors.green,),Container(color: Colors.deepPurpleAccent,),Container(color: Colors.amber,),];
+  final screens = [const HomeScreen(),const StoreScreen(),Container(color: Colors.deepPurpleAccent,),Container(color: Colors.amber,),];
 
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medi_ghor/common/styles/shadows.dart';
 import 'package:medi_ghor/common/widgets/images/r_rounded_images.dart';
+import 'package:medi_ghor/common/widgets/texts/r_brand_title_text_with_verified_icon.dart';
 import 'package:medi_ghor/utils/constants/colors.dart';
 import 'package:medi_ghor/utils/constants/image_strings.dart';
 import 'package:medi_ghor/utils/helpers/helper_functions.dart';
@@ -76,58 +77,46 @@ class RProductCardVertical extends StatelessWidget {
             ),
       
             ///details
-            Padding(
-              padding: const EdgeInsets.only(left: RSizes.sm),
+            const Padding(
+              padding: EdgeInsets.only(left: RSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const RProductTitleText(
+                  RProductTitleText(
                     title: 'hahahahahaha',
                     smallSize: true,
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: RSizes.spaceBtwItems / 2,
                   ),
-                  Row(
-      
-                    children: [
-                      Text('nana',
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          style: Theme.of(context).textTheme.labelMedium),
-                      const SizedBox(
-                        height: RSizes.sm,
-                      ),
-                      const Icon(
-                        Iconsax.verify5,
-                        color: RColors.primary,
-                        size: RSizes.iconXs,
-                      )
-                    ],
-                  ),
-      
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const RProductPriceText(price: '222',),
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: RColors.dark,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(RSizes.cardRadiusMd),
-                            bottomRight: Radius.circular(RSizes.productImageRadius),
-                          ),
-                        ),
-                        child: const SizedBox(
-                          width: RSizes.iconLg * 1.2,
-                            height: RSizes.iconLg * 1.2,
-                            child: Center(child: Icon(Iconsax.add,color: RColors.white,))),
-                      ),
-                    ],
-                  ),
+                  RBrandTitleTextWithVerifiedIcon(title: 'Nike'),
                 ],
               ),
             ),
+        const Spacer(),
+
+        Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(left: RSizes.sm),
+            child: RProductPriceText(price: '222',),
+          ),
+          Container(
+            decoration: const BoxDecoration(
+              color: RColors.dark,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(RSizes.cardRadiusMd),
+                bottomRight: Radius.circular(RSizes.productImageRadius),
+              ),
+            ),
+            child: const SizedBox(
+                width: RSizes.iconLg * 1.2,
+                height: RSizes.iconLg * 1.2,
+                child: Center(child: Icon(Iconsax.add,color: RColors.white,))),
+          ),
+        ],
+      ),
           ],
         ),
       ),

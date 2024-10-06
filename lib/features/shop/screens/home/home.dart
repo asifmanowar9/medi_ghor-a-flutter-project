@@ -69,6 +69,7 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.all(RSizes.defaultSpace),
               child: Column(
                 children: [
+                  ///promo slider
                   const RPromoSlider(
                     banners: [
                       RImages.promoBanner2,
@@ -79,6 +80,10 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(
                     height: RSizes.spaceBtwSections,
                   ),
+                  ///heading
+                  RSectionHeading(title: 'Popular Items', onPressed: (){},),
+                  const SizedBox(height: RSizes.spaceBtwItems,),
+
                   RGridLayout(itemCount: 4, itemBuilder: (_, index ) => const RProductCardVertical() ,),
 
                 ],
