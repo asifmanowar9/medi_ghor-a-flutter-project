@@ -17,7 +17,7 @@ class RHomeCategories extends StatelessWidget {
           itemCount: 6,
           scrollDirection: Axis.horizontal,
           itemBuilder: (_, index) {
-            return RVerticalImageText(title: 'Shoe', image: RImages.shoeIcon, onTap: (){},);
+            return RVerticalImageText(title: 'Medicine', image: RImages.medicineIcon, onTap: (){},);
           }),
     );
   }

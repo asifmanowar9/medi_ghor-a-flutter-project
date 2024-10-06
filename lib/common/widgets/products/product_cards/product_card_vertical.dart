@@ -1,17 +1,18 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medi_ghor/common/styles/shadows.dart';
-import 'package:medi_ghor/common/widgets/images/r_rounded_images.dart';
-import 'package:medi_ghor/common/widgets/texts/r_brand_title_text_with_verified_icon.dart';
-import 'package:medi_ghor/utils/constants/colors.dart';
-import 'package:medi_ghor/utils/constants/image_strings.dart';
-import 'package:medi_ghor/utils/helpers/helper_functions.dart';
 
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
+import '../../../../utils/helpers/helper_functions.dart';
+import '../../../styles/shadows.dart';
 import '../../custom_shapes/containers/rounded_container.dart';
 import '../../icons/r_circular_icon.dart';
+import '../../images/r_rounded_images.dart';
 import '../../texts/product_price_text.dart';
 import '../../texts/product_title_text.dart';
+import '../../texts/r_brand_title_text_with_verified_icon.dart';
 
 class RProductCardVertical extends StatelessWidget {
   const RProductCardVertical({super.key});
@@ -19,7 +20,7 @@ class RProductCardVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = RHelperFunctions.isDarkMode(context);
-    
+
     return GestureDetector(
       onTap: (){},
       child: Container(
@@ -41,10 +42,10 @@ class RProductCardVertical extends StatelessWidget {
                 children: [
                   ///thumbnail
                   const RRoundedImage(
-                    imageUrl: RImages.productImage1,
+                    imageUrl: RImages.productImage78,
                     applyImageRadius: true,
                   ),
-      
+
                   ///sale tag
                   Positioned(
                     top: 12,
@@ -60,7 +61,7 @@ class RProductCardVertical extends StatelessWidget {
                               .apply(color: RColors.dark)),
                     ),
                   ),
-      
+
                   ///fav icon button
                   const Positioned(
                       top: 0,
@@ -75,53 +76,55 @@ class RProductCardVertical extends StatelessWidget {
             const SizedBox(
               height: RSizes.spaceBtwItems / 2,
             ),
-      
+
             ///details
             const Padding(
               padding: EdgeInsets.only(left: RSizes.sm),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Flexible(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    RProductTitleText(
+                      title: 'Napa - Tablet-(500mg)' ,
+                      smallSize: true,
+                    ),
+                    SizedBox(
+                      height: RSizes.spaceBtwItems / 2,
+                    ),
+                    RBrandTitleTextWithVerifiedIcon(title: 'Beximco'),
+                  ],
+                ),
+              ),
+            ),
+
+            /// Spacer replaced with Flexible to avoid overflow
+            Flexible(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  RProductTitleText(
-                    title: 'hahahahahaha',
-                    smallSize: true,
+                  const Padding(
+                    padding: EdgeInsets.only(left: RSizes.sm),
+                    child: RProductPriceText(price: '12',),
                   ),
-                  SizedBox(
-                    height: RSizes.spaceBtwItems / 2,
+                  Container(
+                    decoration: const BoxDecoration(
+                      color: RColors.dark,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(RSizes.cardRadiusMd),
+                        bottomRight: Radius.circular(RSizes.productImageRadius),
+                      ),
+                    ),
+                    child: const SizedBox(
+                        width: RSizes.iconLg * 1.2,
+                        height: RSizes.iconLg * 1.2,
+                        child: Center(child: Icon(Iconsax.add,color: RColors.white,))),
                   ),
-                  RBrandTitleTextWithVerifiedIcon(title: 'Nike'),
                 ],
               ),
             ),
-        const Spacer(),
-
-        Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(left: RSizes.sm),
-            child: RProductPriceText(price: '222',),
-          ),
-          Container(
-            decoration: const BoxDecoration(
-              color: RColors.dark,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(RSizes.cardRadiusMd),
-                bottomRight: Radius.circular(RSizes.productImageRadius),
-              ),
-            ),
-            child: const SizedBox(
-                width: RSizes.iconLg * 1.2,
-                height: RSizes.iconLg * 1.2,
-                child: Center(child: Icon(Iconsax.add,color: RColors.white,))),
-          ),
-        ],
-      ),
           ],
         ),
       ),
     );
   }
 }
-
-

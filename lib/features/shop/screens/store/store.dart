@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medi_ghor/common/widgets/app_bar/appbar.dart';
 import 'package:medi_ghor/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:medi_ghor/common/widgets/layouts/grid_layout.dart';
 import 'package:medi_ghor/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:medi_ghor/common/widgets/texts/section_heading.dart';
 import 'package:medi_ghor/utils/constants/colors.dart';
@@ -50,29 +51,45 @@ class StoreScreen extends StatelessWidget {
                 RSectionHeading(title: 'Featured Brands.',onPressed: (){},),
                 const SizedBox(height: RSizes.spaceBtwItems / 1.5,),
 
-                 RRoundedContainer(
-                  padding: EdgeInsets.all(RSizes.sm),
-                  showBorder: true,
-                  backgroundColor: Colors.transparent,
-                  child: Row(
-                    children: [
-                      ///icon
-                      RCircularImage(
-                        isNetworkImage: false,
-                        backgroundColor: Colors.transparent,
-                        image: RImages.clothIcon,
-                        overlayColor: RHelperFunctions.isDarkMode(context) ? RColors.white : RColors.black,
-                      ),
-                      const SizedBox(width: RSizes.spaceBtwItems / 2,),
+                 RGridLayout(itemCount: 4, mainAxisExtent: 100 ,itemBuilder: (_,index) {
+                   return GestureDetector(
+                     onTap: (){},
+                     child: RRoundedContainer(
+                       padding: const EdgeInsets.all(RSizes.sm),
+                       showBorder: true,
+                       backgroundColor: Colors.transparent,
+                       child: Row(
+                         children: [
+                           ///icon
+                           Flexible(
+                             child: RCircularImage(
+                               isNetworkImage: false,
+                               backgroundColor: Colors.transparent,
+                               image: RImages.medicineIcon,
+                               overlayColor: RHelperFunctions.isDarkMode(context) ? RColors.white : RColors.black,
+                             ),
+                           ),
+                           const SizedBox(width: RSizes.spaceBtwItems / 2,),
 
-                      const Column(
-                        children: [
-                          RBrandTitleTextWithVerifiedIcon(title: 'Nike',brandTextSize: TextSizes.large,),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
+                           Expanded(
+                             child: Column(
+                               mainAxisSize: MainAxisSize.min,
+                               crossAxisAlignment: CrossAxisAlignment.start,
+                               children: [
+                                 const RBrandTitleTextWithVerifiedIcon(title: 'Beximco',brandTextSize: TextSizes.medium,),
+                                 Text(
+                                   '1 products',
+                                   overflow: TextOverflow.ellipsis,
+                                   style: Theme.of(context).textTheme.labelMedium,
+                                 )
+                               ],
+                             ),
+                           )
+                         ],
+                       ),
+                     ),
+                   );
+                 }),
 
               ],
             ),
