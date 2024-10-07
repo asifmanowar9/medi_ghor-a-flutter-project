@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medi_ghor/features/authentication/controlllers/onboarding_controller.dart';
+import 'package:medi_ghor/features/authentication/controlllers/onBoarding/onboarding_controller.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../utils/constants/colors.dart';

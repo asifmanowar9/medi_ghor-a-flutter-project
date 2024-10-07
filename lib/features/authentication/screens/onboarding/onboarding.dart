@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medi_ghor/features/authentication/controlllers/onboarding_controller.dart';
+import 'package:medi_ghor/features/authentication/controlllers/onBoarding/onboarding_controller.dart';
 import 'package:medi_ghor/utils/constants/colors.dart';
 import 'package:medi_ghor/utils/constants/image_strings.dart';
 import 'package:medi_ghor/utils/constants/text_strings.dart';
