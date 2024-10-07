@@ -21,7 +21,9 @@ class RVerticalImageText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final dark = RHelperFunctions.isDarkMode(context);
+
     return GestureDetector(
       onTap: onTap,
       child: Padding(
@@ -42,7 +44,7 @@ class RVerticalImageText extends StatelessWidget {
                 child: Image(
                   image: AssetImage(image ),
                   fit: BoxFit.cover,
-                  color: dark ? RColors.light : RColors.dark,
+                  //color: dark ? RColors.light : RColors.dark,
                 ),
               ),
             ),

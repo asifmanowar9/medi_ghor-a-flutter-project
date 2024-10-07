@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "465395855132",
+    "project_id": "medi-ghor-myflutterproject",
+    "storage_bucket": "medi-ghor-myflutterproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465395855132:android:b214956c7b6d89a14e94d9",
+        "android_client_info": {
+          "package_name": "com.example.medi_ghor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "465395855132-44me2qfq8fmfl0tiejj5ivj1mq131ut0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medi_ghor",
+            "certificate_hash": "ca0c6c87a24c1669ba88e03854c90f6e2700157e"
+          }
+        },
+        {
+          "client_id": "465395855132-gitmn8n4nq6s0u7p2i88efhqmi5ldun9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn-pepnl4XIMFfNWYs3HJrnVjQoBZSSE0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "465395855132-75e1blcfpmji855060qsuj3osnbu061i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "465395855132-sklo6h7q34deom9ippiq539eioshimd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mediGhor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
