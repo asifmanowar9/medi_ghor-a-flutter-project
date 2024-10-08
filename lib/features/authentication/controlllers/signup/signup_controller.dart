@@ -40,7 +40,7 @@ class SignupController extends GetxController{
 
     }
     catch(e){
-      RLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      RLoaders.errorSnackBar(title: 'Ooohhhh Snap!', message: e.toString());
 
     }
     finally{
