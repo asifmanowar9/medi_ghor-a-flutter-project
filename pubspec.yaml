@@ -50,12 +50,15 @@ dependencies:
   flutter_native_splash: ^2.4.1
   smooth_page_indicator: ^1.2.0+3
   carousel_slider: ^5.0.0
-
+  lottie: ^3.1.2
+  connectivity_plus: ^6.0.5
 
   #firebase
   firebase_core: ^3.6.0
-  lottie: ^3.1.2
-  connectivity_plus: ^6.0.5
+  firebase_auth: ^5.3.1
+  cloud_firestore: ^5.4.4
+  firebase_storage: ^12.3.3
+
 
 dev_dependencies:
   flutter_test:

@@ -88,15 +88,21 @@ class RSignupForm extends StatelessWidget {
       const SizedBox(
         height: RSizes.spaceBtwInputFields,
       ),
-      TextFormField(
-        controller: controller.password,
-        validator: (value) =>  RValidator.validatePassword( value),
-        // expands: false,
-        obscureText: true,
-        decoration: const InputDecoration(
-            labelText: RTexts.password,
-            prefixIcon: Icon(Iconsax.password_check),
-            suffixIcon: Icon(Iconsax.eye_slash)),
+      Obx(
+         () => TextFormField(
+          controller: controller.password,
+          validator: (value) =>  RValidator.validatePassword( value),
+          // expands: false,
+          obscureText: controller.hidePassword.value,
+          decoration: InputDecoration(
+              labelText: RTexts.password,
+              prefixIcon: const Icon(Iconsax.password_check),
+              suffixIcon: IconButton(
+                  onPressed: () => controller.hidePassword.value =!controller.hidePassword.value,
+                  icon:  Icon(controller.hidePassword.value ? Iconsax.eye_slash : Iconsax.eye),
+              ),
+          ),
+        ),
       ),
       const SizedBox(
         height: RSizes.spaceBtwSections,
@@ -108,7 +114,10 @@ class RSignupForm extends StatelessWidget {
           SizedBox(
               width: 24,
               height: 24,
-              child: Checkbox(value: true, onChanged: (value) {})),
+              child: Obx(() => Checkbox(value: controller.privacyPolicy.value,
+                  onChanged: (value) => controller.privacyPolicy.value = !controller.privacyPolicy.value ),
+              ),
+          ),
           const SizedBox(
             width: RSizes.spaceBtwItems,
           ),

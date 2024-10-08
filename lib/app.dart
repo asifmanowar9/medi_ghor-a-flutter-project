@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medi_ghor/bindings/general_bindings.dart';
-import 'package:medi_ghor/features/authentication/screens/onboarding/onboarding.dart';
+
 import 'package:medi_ghor/utils/constants/colors.dart';
 
 import 'utils/theme/theme.dart';
