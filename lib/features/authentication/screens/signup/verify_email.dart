@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:medi_ghor/common/widgets/success_screen/success_screen.dart';
+import 'package:medi_ghor/features/authentication/controlllers/signup/verify_email_controller.dart';
 import 'package:medi_ghor/features/authentication/screens/login/login.dart';
 import 'package:medi_ghor/utils/constants/text_strings.dart';
 import 'package:medi_ghor/utils/helpers/helper_functions.dart';
@@ -11,11 +12,16 @@ import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key});
+  const VerifyEmailScreen({super.key, this.email});
+
+  final String? email;
 
 
   @override
   Widget build(BuildContext context) {
+    
+    final controller = Get.put(VerifyEmailController());
+    
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -45,7 +51,7 @@ class VerifyEmailScreen extends StatelessWidget {
               ),
               const SizedBox(height: RSizes.spaceBtwItems,),
               Text(
-                'asifpc2022@gmail.com',
+                email ?? '',
                 style: Theme.of(context).textTheme.labelLarge,
                 textAlign: TextAlign.center,
               ),

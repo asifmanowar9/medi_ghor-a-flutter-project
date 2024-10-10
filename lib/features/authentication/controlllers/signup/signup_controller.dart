@@ -30,7 +30,8 @@ class SignupController extends GetxController {
       ///start loading
       RFullScreenLoader.openLoadingDialog(
           'We are processing your information...',
-          RImages.staticSuccessIllustration);
+          RImages.animation2,
+      );
 
       ///check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -79,7 +80,7 @@ class SignupController extends GetxController {
           title: 'Congratulation',
           message: 'Your account has been created! Verify email to continue');
 
-      Get.to(() => VerifyEmailScreen());
+      Get.to(() => VerifyEmailScreen(email: email.text.trim(),));
     } catch (e) {
       RFullScreenLoader.stopLoading();
 

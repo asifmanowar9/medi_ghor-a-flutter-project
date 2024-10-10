@@ -63,6 +63,7 @@ class UserModel {
   factory UserModel.fromSnapshot(
       DocumentSnapshot<Map<String, dynamic>> document) {
     final data = document.data()!;
+    print('User data retrieved: $data');  // Log retrieved data
     return UserModel(
       id: document.id,
       firstName: data['FirstName'] ?? "",

@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
@@ -32,41 +31,44 @@ class AuthenticationRepository extends GetxController {
         ? Get.offAll(() => const LoginScreen())
         : Get.offAll(() => const OnBoardingScreen());
   }
-     ///sign-in
 
-    ///register
-    Future<UserCredential> registerWithEmailAndPassword (String email, String password) async {
-    try{
-      return await _auth.createUserWithEmailAndPassword(email: email, password: password);
-    } on FirebaseAuthException catch(e){
+  ///sign-in
+
+  ///register
+  Future<UserCredential> registerWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      return await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+    } on FirebaseAuthException catch (e) {
       throw RFirebaseAuthException(e.code).message;
-    } on FirebaseException catch(e){
+    } on FirebaseException catch (e) {
       throw RFirebaseException(e.code).message;
-    }on FormatException catch(_){
+    } on FormatException catch (_) {
       throw RFormatException();
-    }on PlatformException catch(e){
+    } on PlatformException catch (e) {
       throw RPlatformException(e.code).message;
-    }catch(e){
+    } catch (e) {
       throw 'Something went wrong, Please try again ';
     }
+  }
 
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  /// email verification
+        Future<void> sendEmailVerification() async{
+          try{
+            await _auth.currentUser?.sendEmailVerification();
+          }on FirebaseAuthException catch (e) {
+            throw RFirebaseAuthException(e.code).message;
+          } on FirebaseException catch (e) {
+            throw RFirebaseException(e.code).message;
+          } on FormatException catch (_) {
+            throw RFormatException();
+          } on PlatformException catch (e) {
+            throw RPlatformException(e.code).message;
+          } catch (e) {
+            throw 'Something went wrong, Please try again ';
+          }
+        }
 
 
 }

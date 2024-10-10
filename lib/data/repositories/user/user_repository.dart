@@ -1,6 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:medi_ghor/features/personalization/models/user_model.dart';
@@ -19,6 +17,7 @@ class UserRepository extends GetxController {
   ///register
   Future<void> saveUserRecord (UserModel user) async {
     try{
+      print('User data to save: ${user.toJson()}');  // Log user data
        await _db.collection('User').doc(user.id).set(user.toJson());
     } on FirebaseException catch(e){
       throw RFirebaseException(e.code).message;
@@ -27,6 +26,7 @@ class UserRepository extends GetxController {
     }on PlatformException catch(e){
       throw RPlatformException(e.code).message;
     }catch(e){
+      print('Error saving user data: $e');  // Log errors
       throw 'Something went wrong, Please try again ';
     }
 
