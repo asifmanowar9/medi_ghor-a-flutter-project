@@ -48,7 +48,7 @@ class VerifyEmailController extends GetxController {
       }
     });
   }
-  ///manually check email verification
+  ///manually check email verification...
       checkEmailVerificationStatus(){
         final currentUser = FirebaseAuth.instance.currentUser;
         if(currentUser != null && currentUser.emailVerified){
