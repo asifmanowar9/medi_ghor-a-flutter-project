@@ -12,7 +12,7 @@ import 'data/repositories/authentication/authentication_repository.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
-  ///widgets bindings...
+  ///widgets bindings.......
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
 
