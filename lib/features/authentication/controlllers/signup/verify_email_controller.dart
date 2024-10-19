@@ -42,7 +42,7 @@ class VerifyEmailController extends GetxController {
           image: RImages.animation3,
           title: RTexts.yourAccountCreatedTitle,
           subTitle: RTexts.yourAccountCreatedSubTitle,
-          onPressed: () => AuthenticationRepository.instance.screenRedirect,
+          onPressed: () => AuthenticationRepository.instance.screenRedirect(),
         ),
         );
       }
@@ -52,7 +52,13 @@ class VerifyEmailController extends GetxController {
       checkEmailVerificationStatus(){
         final currentUser = FirebaseAuth.instance.currentUser;
         if(currentUser != null && currentUser.emailVerified){
-
+          Get.off(() => SuccessScreen(
+            image: RImages.animation3,
+            title: RTexts.yourAccountCreatedTitle,
+            subTitle: RTexts.yourAccountCreatedSubTitle,
+            onPressed: () => AuthenticationRepository.instance.screenRedirect(),
+          ),
+          );
         }
       }
 

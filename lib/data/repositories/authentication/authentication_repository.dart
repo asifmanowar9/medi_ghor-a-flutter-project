@@ -3,8 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:medi_ghor/features/authentication/controlllers/signup/verify_email_controller.dart';
 import 'package:medi_ghor/features/authentication/screens/login/login.dart';
 import 'package:medi_ghor/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:medi_ghor/features/authentication/screens/signup/verify_email.dart';
+import 'package:medi_ghor/navigation_menu.dart';
 import 'package:medi_ghor/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:medi_ghor/utils/exceptions/format_exceptions.dart';
 import 'package:medi_ghor/utils/exceptions/platform_exceptions.dart';
@@ -26,10 +29,24 @@ class AuthenticationRepository extends GetxController {
 
   ///function to relevant screen
   screenRedirect() async {
-    deviceStorage.writeIfNull('isFirstTime', true);
-    deviceStorage.read('isFirstTime') != true
-        ? Get.offAll(() => const LoginScreen())
-        : Get.offAll(() => const OnBoardingScreen());
+    final user = _auth.currentUser;
+
+    if(user != null){
+      if(user.emailVerified){
+        Get.offAll(() => NavigationMenu());
+      }
+      else{
+        Get.offAll(() => VerifyEmailScreen(email: _auth.currentUser?.email,));
+      }
+    }
+    else{
+
+      deviceStorage.writeIfNull('isFirstTime', true);
+      deviceStorage.read('isFirstTime') != true
+          ? Get.offAll(() => const LoginScreen())
+          : Get.offAll(() => const OnBoardingScreen());
+    }
+
   }
 
   ///sign-in
