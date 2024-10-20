@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:medi_ghor/features/authentication/controlllers/login/login_controller.dart';
 import 'package:medi_ghor/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:medi_ghor/features/authentication/screens/signup/signup.dart';
 import 'package:medi_ghor/navigation_menu.dart';
+import 'package:medi_ghor/utils/validators/validation.dart';
 
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
@@ -16,13 +18,18 @@ class RLoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
+
     return Form(
+      key: controller.loginFormKey,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: RSizes.spaceBtwSections),
         child: Column(
           children: [
             /// Email input
             TextFormField(
+              controller: controller.email,
+              validator: (value) => RValidator.validateEmail(value),
               decoration: const InputDecoration(
                 prefixIcon: Icon(Iconsax.direct_right),
                 labelText: RTexts.email,
@@ -31,11 +38,23 @@ class RLoginForm extends StatelessWidget {
             const SizedBox(height: RSizes.spaceBtwInputFields),
 
             /// Password input
-            TextFormField(
-              decoration: const InputDecoration(
-                prefixIcon: Icon(Iconsax.password_check),
-                labelText: RTexts.password,
-                suffixIcon: Icon(Iconsax.eye_slash),
+            Obx(
+              () => TextFormField(
+                controller: controller.password,
+                validator: (value) => RValidator.validatePassword(value),
+                // expands: false,
+                obscureText: controller.hidePassword.value,
+                decoration: InputDecoration(
+                  labelText: RTexts.password,
+                  prefixIcon: const Icon(Iconsax.password_check),
+                  suffixIcon: IconButton(
+                    onPressed: () => controller.hidePassword.value =
+                        !controller.hidePassword.value,
+                    icon: Icon(controller.hidePassword.value
+                        ? Iconsax.eye_slash
+                        : Iconsax.eye),
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: RSizes.spaceBtwInputFields / 2),
@@ -48,7 +67,11 @@ class RLoginForm extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Checkbox(value: true, onChanged: (value) {}),
+                      Obx(
+                        () => Checkbox(
+                            value: controller.rememberMe.value,
+                            onChanged: (value) => controller.rememberMe.value = !controller.rememberMe.value),
+                      ),
                       const Text(RTexts.rememberMe),
                     ],
                   ),
@@ -60,14 +83,13 @@ class RLoginForm extends StatelessWidget {
               ),
             ),
 
-
             const SizedBox(height: RSizes.spaceBtwSections),
 
             /// Sign-in button
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => Get.to(() => NavigationMenu()),
+                onPressed: () => Get.to(() => controller.emailAndPasswordSignIn()),
                 child: const Text(RTexts.signIn),
               ),
             ),

@@ -46,6 +46,7 @@ class RImages {
   static const String defaultLoaderAnimation = "assets/images/animations/Animation1.json";
   static const String animation2 = "assets/images/animations/Animation2.json";
   static const String animation3 = "assets/images/animations/Animation3.json";
+  static const String animation4 = "assets/images/animations/Animation4.json";
 
   // -- OnBoarding Texts
   static const String onBoardingImage1 = "assets/images/on_boarding_images/sammy-line-searching.gif";

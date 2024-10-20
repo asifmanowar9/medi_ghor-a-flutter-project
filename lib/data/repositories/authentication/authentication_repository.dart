@@ -49,7 +49,27 @@ class AuthenticationRepository extends GetxController {
 
   }
 
-  ///sign-in
+  ///login
+  Future<UserCredential> loginWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      return await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      throw RFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw RFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw RFormatException();
+    } on PlatformException catch (e) {
+      throw RPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong, Please try again ';
+    }
+  }
+
+
+
 
   ///register
   Future<UserCredential> registerWithEmailAndPassword(
@@ -85,6 +105,26 @@ class AuthenticationRepository extends GetxController {
           } catch (e) {
             throw 'Something went wrong, Please try again ';
           }
+        }
+
+
+        ///logout
+        Future<void> logout() async {
+
+        try{
+          await FirebaseAuth.instance.signOut();
+          Get.offAll(() => LoginScreen());
+        }on FirebaseAuthException catch (e) {
+          throw RFirebaseAuthException(e.code).message;
+        } on FirebaseException catch (e) {
+          throw RFirebaseException(e.code).message;
+        } on FormatException catch (_) {
+          throw RFormatException();
+        } on PlatformException catch (e) {
+          throw RPlatformException(e.code).message;
+        } catch (e) {
+          throw 'Something went wrong, Please try again ';
+        }
         }
 
 
