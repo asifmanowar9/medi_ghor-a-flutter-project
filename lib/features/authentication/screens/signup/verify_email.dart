@@ -35,7 +35,7 @@ class VerifyEmailScreen extends StatelessWidget {
           padding: EdgeInsets.all(RSizes.defaultSpace),
           child: Column(
             children: [
-              ///image
+              ///image....
               Image(
                 image: const AssetImage(RImages.deliveredEmailIllustration),
                 width: RHelperFunctions.screenWidth() * 0.6,
