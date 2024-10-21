@@ -18,6 +18,14 @@ class LoginController extends GetxController {
   final password = TextEditingController();
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
 
+
+  @override
+  void onInit() {
+    email.text = localStorage.read('REMEMBER_ME_EMAIL');
+    password.text = localStorage.read('REMEMBER_ME_PASSWORD');
+    super.onInit();
+  }
+
   /// login with email and password
 
   Future<void> emailAndPasswordSignIn() async {
