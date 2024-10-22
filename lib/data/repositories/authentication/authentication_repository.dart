@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:medi_ghor/features/authentication/controlllers/signup/verify_email_controller.dart';
 import 'package:medi_ghor/features/authentication/screens/login/login.dart';
 import 'package:medi_ghor/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:medi_ghor/features/authentication/screens/signup/verify_email.dart';

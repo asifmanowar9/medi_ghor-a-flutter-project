@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medi_ghor/features/authentication/controlllers/signup/signup_controller.dart';
-import 'package:medi_ghor/features/authentication/screens/signup/verify_email.dart';
 import 'package:medi_ghor/utils/validators/validation.dart';
 
 import '../../../../../utils/constants/colors.dart';
@@ -140,7 +139,7 @@ class RSignupForm extends StatelessWidget {
                       text: '${RTexts.and} ',
                       style: Theme.of(context).textTheme.bodySmall),
                   TextSpan(
-                      text: '${RTexts.termsOfUse}',
+                      text: RTexts.termsOfUse,
                       style: Theme.of(context).textTheme.bodyMedium!.apply(
                             color: dark ? RColors.white : RColors.primary,
                             decoration: TextDecoration.underline,

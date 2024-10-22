@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:medi_ghor/features/authentication/controlllers/onBoarding/onboarding_controller.dart';
-import 'package:medi_ghor/utils/constants/colors.dart';
 import 'package:medi_ghor/utils/constants/image_strings.dart';
 import 'package:medi_ghor/utils/constants/text_strings.dart';
-import 'package:medi_ghor/utils/device/device_utility.dart';
-import 'package:medi_ghor/utils/helpers/helper_functions.dart';
-import 'package:medi_ghor/utils/theme/custom_theme/text_theme.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 
 import '../widgets/onboarding_dot_navigation.dart';

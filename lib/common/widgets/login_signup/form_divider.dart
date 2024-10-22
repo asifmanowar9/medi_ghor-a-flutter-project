@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:medi_ghor/utils/helpers/helper_functions.dart';
 
 import '../../../utils/constants/colors.dart';
-import '../../../utils/constants/text_strings.dart';
 
 class RFormDivider extends StatelessWidget {
   const RFormDivider({

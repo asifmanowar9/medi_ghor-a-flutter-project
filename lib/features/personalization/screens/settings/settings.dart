@@ -7,6 +7,7 @@ import 'package:medi_ghor/common/widgets/texts/section_heading.dart';
 import 'package:medi_ghor/utils/constants/colors.dart';
 
 import '../../../../common/widgets/list_tiles/user_profile_tile.dart';
+import '../../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../../utils/constants/sizes.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -46,7 +47,8 @@ class SettingsScreen extends StatelessWidget {
                   SizedBox(height: RSizes.spaceBtwSections,),
                   SizedBox(
                     width: double.infinity,
-                    child: OutlinedButton(onPressed: (){}, child: Text('Logout')),
+                    child: OutlinedButton(onPressed: ()async {await AuthenticationRepository.instance.logout();},
+                        child: Text('Logout')),
                   ),
                   SizedBox(height: RSizes.spaceBtwSections * 2.5,),
                 ],

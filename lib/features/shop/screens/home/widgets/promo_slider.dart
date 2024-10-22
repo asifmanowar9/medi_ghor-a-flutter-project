@@ -6,7 +6,6 @@ import 'package:medi_ghor/utils/constants/colors.dart';
 
 import '../../../../../common/widgets/custom_shapes/containers/circular_container.dart';
 import '../../../../../common/widgets/images/r_rounded_images.dart';
-import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 
 class RPromoSlider extends StatelessWidget {
