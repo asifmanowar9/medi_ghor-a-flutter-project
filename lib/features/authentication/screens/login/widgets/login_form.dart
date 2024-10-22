@@ -87,7 +87,7 @@ class RLoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => Get.to(() => controller.emailAndPasswordSignIn()),
+                onPressed: () => controller.emailAndPasswordSignIn(),
                 child: const Text(RTexts.signIn),
               ),
             ),

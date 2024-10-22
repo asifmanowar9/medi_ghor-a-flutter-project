@@ -142,7 +142,7 @@ class RImages {
   static const String userProfileImage3 = "assets/images/reviews/review_profile_image_3.jpeg";
 
   //Banners
-  static const String promoBanner1 = "assets/images/banners/promo_banner_1.png";
+  static const String promoBanner1 = "assets/images/banners/banner_11.png";
   static const String promoBanner2 = "assets/images/banners/promo-banner-2.png";
   static const String promoBanner3 = "assets/images/banners/promo-banner-3.png";
   static const String banner1 = "assets/images/banners/banner_1.jpg";
