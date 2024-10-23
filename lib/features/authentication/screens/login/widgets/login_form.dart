@@ -83,7 +83,7 @@ class RLoginForm extends StatelessWidget {
 
             const SizedBox(height: RSizes.spaceBtwSections),
 
-            /// Sign-in button
+            /// Sign-in button...
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
