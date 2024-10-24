@@ -93,7 +93,7 @@ class RLoginForm extends StatelessWidget {
             ),
             const SizedBox(height: RSizes.spaceBtwItems),
 
-            /// Create account button
+            /// Create account button...
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
