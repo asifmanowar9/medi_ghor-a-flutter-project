@@ -57,7 +57,7 @@ class RLoginForm extends StatelessWidget {
             ),
             const SizedBox(height: RSizes.spaceBtwInputFields / 2),
 
-            /// Remember me & forget password
+            /// Remember me & forget password...
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
