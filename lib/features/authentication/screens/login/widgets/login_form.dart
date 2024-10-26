@@ -35,7 +35,7 @@ class RLoginForm extends StatelessWidget {
             ),
             const SizedBox(height: RSizes.spaceBtwInputFields),
 
-            /// Password input
+            /// Password input...
             Obx(
               () => TextFormField(
                 controller: controller.password,
