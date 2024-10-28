@@ -26,7 +26,7 @@ class AuthenticationRepository extends GetxController {
     screenRedirect();
   }
 
-  ///function to relevant screen
+  ///function to relevant screen....
   screenRedirect() async {
     final user = _auth.currentUser;
 
