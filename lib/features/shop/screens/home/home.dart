@@ -13,7 +13,25 @@ import '../../../../common/widgets/products/product_cards/product_card_vertical.
 import '../../../../common/widgets/texts/section_heading.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+   HomeScreen({super.key});
+
+  final List<Map<String, String>> products = [
+    {
+      'productName': 'Napa - Tablet-(500mg)',
+      'productPrice': '\$12',
+      'productImage': 'assets/RImages.productImage78', // Add actual image paths
+      'productBrand': 'Beximco',
+      'discountPercentage': '20',
+    },
+    {
+      'productName': 'Aspirin - Tablet-(200mg)',
+      'productPrice': '\$8',
+      'productImage': 'assets/product_image_2.jpg', // Add actual image paths
+      'productBrand': 'Medco',
+      'discountPercentage': '10',
+    },
+    // Add more products here
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -84,9 +102,24 @@ class HomeScreen extends StatelessWidget {
 
 
 
-                  RGridLayout(itemCount: 1, itemBuilder: (_, index ) => const RProductCardVertical() ,),
 
-                  RGridLayout(itemCount: 1, itemBuilder: (_, index ) => const RProductCardVertical() ,),
+                  RGridLayout(
+                    itemCount: products.length,
+                    itemBuilder: (context, index) {
+                      final product = products[index];
+                      return RProductCardVertical(
+                        productName: product['productName']!,
+                        productPrice: product['productPrice']!,
+                        productImage: product['productImage']!,
+                        productBrand: product['productBrand']!,
+                        discountPercentage: product['discountPercentage']!,
+                      );
+                    },
+                  ),
+
+                 // RGridLayout(itemCount: 1, itemBuilder: (_, index ) => const RProductCardVertical() ,),
+
+                 // RGridLayout(itemCount: 1, itemBuilder: (_, index ) => const RProductCardVertical() ,),
 
                 ],
               ),

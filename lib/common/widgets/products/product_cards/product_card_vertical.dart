@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 import '../../../styles/shadows.dart';
@@ -14,14 +13,27 @@ import '../../texts/product_title_text.dart';
 import '../../texts/r_brand_title_text_with_verified_icon.dart';
 
 class RProductCardVertical extends StatelessWidget {
-  const RProductCardVertical({super.key});
+  final String productName;
+  final String productPrice;
+  final String productImage;
+  final String productBrand;
+  final String discountPercentage;
+
+  const RProductCardVertical({
+    super.key,
+    required this.productName,
+    required this.productPrice,
+    required this.productImage,
+    required this.productBrand,
+    required this.discountPercentage,
+  });
 
   @override
   Widget build(BuildContext context) {
     final dark = RHelperFunctions.isDarkMode(context);
 
     return GestureDetector(
-      onTap: (){},
+      onTap: () {},
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -40,8 +52,8 @@ class RProductCardVertical extends StatelessWidget {
               child: Stack(
                 children: [
                   ///thumbnail
-                  const RRoundedImage(
-                    imageUrl: RImages.productImage78,
+                  RRoundedImage(
+                    imageUrl: productImage,
                     applyImageRadius: true,
                   ),
 
@@ -53,7 +65,7 @@ class RProductCardVertical extends StatelessWidget {
                       backgroundColor: RColors.secondary.withOpacity(0.8),
                       padding: const EdgeInsets.symmetric(
                           horizontal: RSizes.sm, vertical: RSizes.xs),
-                      child: Text('20%',
+                      child: Text('$discountPercentage%',
                           style: Theme.of(context)
                               .textTheme
                               .labelLarge!
@@ -77,32 +89,31 @@ class RProductCardVertical extends StatelessWidget {
             ),
 
             ///details
-            const Padding(
-              padding: EdgeInsets.only(left: RSizes.sm),
+            Padding(
+              padding: const EdgeInsets.only(left: RSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   RProductTitleText(
-                    title: 'Napa - Tablet-(500mg)' ,
+                    title: productName,
                     smallSize: true,
                   ),
                   SizedBox(
                     height: RSizes.spaceBtwItems / 2,
                   ),
-                  RBrandTitleTextWithVerifiedIcon(title: 'Beximco'),
+                  RBrandTitleTextWithVerifiedIcon(title: productBrand),
                 ],
               ),
             ),
 
             /// Spacer replaced with Flexible to avoid overflow
             Flexible(
-             // width: MediaQuery.of(context).size.width,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: RSizes.sm),
-                    child: RProductPriceText(price: '12',),
+                  Padding(
+                    padding: const EdgeInsets.only(left: RSizes.sm),
+                    child: RProductPriceText(price: productPrice),
                   ),
                   Container(
                     decoration: const BoxDecoration(
@@ -113,9 +124,10 @@ class RProductCardVertical extends StatelessWidget {
                       ),
                     ),
                     child: const SizedBox(
-                        width: RSizes.iconLg * 1.2,
-                        height: RSizes.iconLg * 1.2,
-                        child: Center(child: Icon(Iconsax.add,color: RColors.white,)) ),
+                      width: RSizes.iconLg * 1.2,
+                      height: RSizes.iconLg * 1.2,
+                      child: Center(child: Icon(Iconsax.add, color: RColors.white)),
+                    ),
                   ),
                 ],
               ),
