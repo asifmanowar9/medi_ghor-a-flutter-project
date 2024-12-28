@@ -79,25 +79,24 @@ class RProductCardVertical extends StatelessWidget {
             ///details
             const Padding(
               padding: EdgeInsets.only(left: RSizes.sm),
-              child: Flexible(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    RProductTitleText(
-                      title: 'Napa - Tablet-(500mg)' ,
-                      smallSize: true,
-                    ),
-                    SizedBox(
-                      height: RSizes.spaceBtwItems / 2,
-                    ),
-                    RBrandTitleTextWithVerifiedIcon(title: 'Beximco'),
-                  ],
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  RProductTitleText(
+                    title: 'Napa - Tablet-(500mg)' ,
+                    smallSize: true,
+                  ),
+                  SizedBox(
+                    height: RSizes.spaceBtwItems / 2,
+                  ),
+                  RBrandTitleTextWithVerifiedIcon(title: 'Beximco'),
+                ],
               ),
             ),
 
             /// Spacer replaced with Flexible to avoid overflow
             Flexible(
+             // width: MediaQuery.of(context).size.width,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -116,7 +115,7 @@ class RProductCardVertical extends StatelessWidget {
                     child: const SizedBox(
                         width: RSizes.iconLg * 1.2,
                         height: RSizes.iconLg * 1.2,
-                        child: Center(child: Icon(Iconsax.add,color: RColors.white,))),
+                        child: Center(child: Icon(Iconsax.add,color: RColors.white,)) ),
                   ),
                 ],
               ),

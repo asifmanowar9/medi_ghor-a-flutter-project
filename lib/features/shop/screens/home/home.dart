@@ -82,7 +82,11 @@ class HomeScreen extends StatelessWidget {
                   RSectionHeading(title: 'Popular Items', onPressed: (){},),
                   const SizedBox(height: RSizes.spaceBtwItems,),
 
-                  RGridLayout(itemCount: 4, itemBuilder: (_, index ) => const RProductCardVertical() ,),
+
+
+                  RGridLayout(itemCount: 1, itemBuilder: (_, index ) => const RProductCardVertical() ,),
+
+                  RGridLayout(itemCount: 1, itemBuilder: (_, index ) => const RProductCardVertical() ,),
 
                 ],
               ),
