@@ -153,6 +153,9 @@ class RImages {
   static const String banner6 = "assets/images/banners/banner_6.jpg";
   static const String banner7 = "assets/images/banners/banner_7.jpg";
   static const String banner8 = "assets/images/banners/banner_8.jpg";
+  static const String banner9 = "assets/images/banners/pb2.png";
+  static const String banner10 = "assets/images/banners/pb3.png";
+  static const String banner11 = "assets/images/banners/pb4.png";
 
 
   //Profile

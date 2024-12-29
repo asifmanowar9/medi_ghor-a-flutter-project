@@ -46,7 +46,7 @@ class RProductCardVertical extends StatelessWidget {
           children: [
             ///thumbnail, wishlist button , discount tag
             RRoundedContainer(
-              height: 180,
+              height: 160,
               padding: const EdgeInsets.all(RSizes.sm),
               backgroundColor: dark ? RColors.dark : RColors.light,
               child: Stack(
