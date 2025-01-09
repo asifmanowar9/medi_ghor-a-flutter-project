@@ -9,7 +9,7 @@ class RBrandTitleTextWithVerifiedIcon extends StatelessWidget {
   const RBrandTitleTextWithVerifiedIcon({
       super.key,
       required this.title,
-      this.maxLine = 3,
+      this.maxLine = 2,
       this.textColor,
       this.iconColor = RColors.primary,
       this.textAlign = TextAlign.center,

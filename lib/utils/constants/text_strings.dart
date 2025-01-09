@@ -63,7 +63,7 @@ class RTexts {
 
   // -- Home
   static const String homeAppbarTitle = "Good day for shopping";
-  static const String homeAppbarSubTitle = "Raiyan Asif";
+  static const String homeAppbarSubTitle = "Asif Manowar";
 
 
 }

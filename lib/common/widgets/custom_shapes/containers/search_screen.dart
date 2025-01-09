@@ -35,7 +35,7 @@ class SearchScreen extends StatelessWidget {
             return ListTile(
               leading: Image.asset(product['productImage']!), // Display product image
               title: Text(product['productName']!),
-              subtitle: Text('Price: \$${product['productPrice']}'),
+              subtitle: Text('Price: \৳${product['productPrice']}'),
             );
           },
         );
